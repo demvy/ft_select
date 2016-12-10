@@ -5,14 +5,15 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
 
 
 typedef struct 	s_square
 {
 	int 		x_coord;
 	int 		y_coord;
-	int 		down;
-	int 		right;	
+	// int 		down;
+	// int 		right;	
 }				t_square;
 
 
