@@ -49,13 +49,13 @@ void		is_in_tetramin(char *str, int pos, int *nb_count)
 	else if (pos == 18)
 		*nb_count += (str[pos - 1] == '#') + (str[pos - 5] == '#');
 	else if (pos >=1 && pos <= 3)
-		*nb_count += (str[pos + 1] == '#') + (str[pos + 5] == '#') + 
+		*nb_count += (str[pos + 1] == '#') + (str[pos + 5] == '#') +
 							(str[pos - 1] == '#');
 	else if (pos >= 15 && pos <= 17)
-		*nb_count += (str[pos + 1] == '#') + (str[pos - 5] == '#') + 
+		*nb_count += (str[pos + 1] == '#') + (str[pos - 5] == '#') +
 							(str[pos - 1] == '#');
 	else
-		*nb_count += (str[pos + 1] == '#') + (str[pos - 5] == '#') + 
+		*nb_count += (str[pos + 1] == '#') + (str[pos - 5] == '#') +
 							(str[pos - 1] == '#') + (str[pos + 5] == '#');
 }
 
@@ -87,7 +87,7 @@ t_tetramin **reading(char *str, int *j)
 	t_square    *square;
 	int nb_count;
 	t_tetramin *tetramin;
-	
+
 	buf = (char*)malloc(sizeof(char) * (BUF_SIZE + 1));
 	if (!buf)
 		return (NULL);
@@ -104,7 +104,7 @@ t_tetramin **reading(char *str, int *j)
 			exit(1);
 		}
 		while ((ret = read(fd, buf, BUF_SIZE)))
-		{	
+		{
 			if (ret >= 20)
 			{
 				buf[ret] = '\0';
@@ -184,7 +184,9 @@ void		ft_put_tetramin(char* tab, t_tetramin *arr, int pos, int size)
 {
 	char	l;
 
-	if (tab[pos + ((arr->second)->x_coord - (arr->first)->x_coord) * (size + 1) +
+	printf("pos = %d\n", pos);
+	if (tab[pos] == '.' &&
+		tab[pos + ((arr->second)->x_coord - (arr->first)->x_coord) * (size + 1) +
 	 ((arr->second)->y_coord - (arr->first)->y_coord)] == '.' &&
 	 tab[pos + ((arr->third)->x_coord - (arr->first)->x_coord) * (size + 1) +
 	 ((arr->third)->y_coord - (arr->first)->y_coord)] == '.' &&
@@ -202,8 +204,11 @@ void		ft_put_tetramin(char* tab, t_tetramin *arr, int pos, int size)
 	 ((arr->fourth)->y_coord - (arr->first)->y_coord)] = l;
 	 printf("new tab - \n%s\n", tab);
 	}
-	else
+	else if (pos <= size * (size + 1))
+	{
+		printf("current pos = %d\n", pos);
 		ft_put_tetramin(tab, arr, pos + 1, size);
+	}
 }
 
 void		ft_build_matrix(int size, t_tetramin **arr, int t_amount)
@@ -211,6 +216,7 @@ void		ft_build_matrix(int size, t_tetramin **arr, int t_amount)
 	char	*tab;
 	int 	len;
 	int		i;
+	int		j; // counter for arr;
 
 
 	len = size * (size + 1);
@@ -226,17 +232,21 @@ void		ft_build_matrix(int size, t_tetramin **arr, int t_amount)
 		i++;
 	}
 	i = 1;
-	while (tab[i - 1] != '\0')
+	j = 0;
+	while (tab[i - 1] != '\0' && j < t_amount)
 	{
 		if (tab[i - 1] == '#' || tab[i] == '\n')
-			continue ;
+//			continue ;
+			;
 		if (tab[i - 1] == '.')
 		{
 			printf("tab start - \n%s\n", tab);
 			printf("lohi\n");
-			ft_put_tetramin(tab, arr[i - 1], i - 1, size);
+			ft_put_tetramin(tab, arr[j++], i - 1, size);
 		}
+		printf("i = %d\tj = %d\n, tab = \n%s\n", i, j, tab);
 		i++;
+		printf("i = %d\tj = %d\n, tab = \n%s\n", i, j, tab);
 	}
 	printf("len = %d\ntab = \n%s\n", len, tab);
 }
