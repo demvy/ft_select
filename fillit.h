@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fillit.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oshudria <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/13 15:58:04 by oshudria          #+#    #+#             */
+/*   Updated: 2016/12/13 19:01:30 by oshudria         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef _FILLIT_H
 # define _FILLIT_H
@@ -6,16 +17,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include "libft.h"
 
+#define BUF_SIZE 21
 
-typedef struct 	s_square
+void				ft_puterror(int n);
+void				t_check(char *str, int *counter);
+void				**ft_read(char *file, int *size);
+
+typedef struct		s_square
 {
-	int 		x_coord;
-	int 		y_coord;
-	// int 		down;
-	// int 		right;	
-}				t_square;
-
+	int				x_coord;
+	int				y_coord;
+}					t_square;
 
 typedef struct  	s_tetramin
 {
