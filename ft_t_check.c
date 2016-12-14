@@ -30,17 +30,17 @@ static void	ft_neighbor(char *str, int pos, int *nb_count, int *dash_count)
 			(str[pos + 5] == '#') + (str[pos - 5] == '#');
 }
 
-static int	ft_lstrlen(const char *str)
+static int	ft_lstrlen(const char *str, int pos)
 {
-	const char	*str_end;
+	int	i;
 
-	str_end = str;
-	while (*str_end != '\n' && *str_end != '\0')
-		str_end++;
-	return (str_end - str);
+	i = pos;
+	while (str[i] != '\n' && str[i] != '\0')
+		i++;
+	return (i - pos);
 }
 
-void		t_check(char *str, int *counter)
+void		t_check(char *str, int **counter)
 {
 	int	i;
 	int	dash_count;
@@ -49,14 +49,15 @@ void		t_check(char *str, int *counter)
 	i = 0;
 	nb_count = 0;
 	dash_count = 0;
-	*counter = *counter + 1;
-	if (*counter > 26)
+	**counter = **counter + 1;
+	if (**counter > 26)
 		ft_puterror(2);
 	while (str[i] != '\0')
 	{
 		if (str[i] != '.' && str[i] != '#' && str[i] != '\n')
 			ft_puterror(2);
-		if ((i == 0 || i == 5 || i == 10 || i == 15) && (ft_lstrlen(str) != 4))
+		if ((i == 0 || i == 5 || i == 10 || i == 15) &&
+			(ft_lstrlen(str, i) != 4))
 			ft_puterror(2);
 		if (str[i] == '#')
 			ft_neighbor(str, i, &nb_count, &dash_count);

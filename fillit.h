@@ -13,17 +13,17 @@
 #ifndef _FILLIT_H
 # define _FILLIT_H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include "libft.h"
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include "libft.h"
 
-#define BUF_SIZE 21
+# define BUF_SIZE 21
+# define T_MAX 26
 
 void				ft_puterror(int n);
-void				t_check(char *str, int *counter);
-t_tetramin			**ft_read(char *file, int *size);
+void				t_check(char *str, int **counter);
 
 typedef struct		s_coord
 {
@@ -39,5 +39,7 @@ typedef struct  	s_tetramin
 	struct s_coord	*third;
 	struct s_coord	*fourth;
 }					t_tetramin;
+
+t_tetramin			**ft_read(char *file, int *t_counter);
 
 #endif

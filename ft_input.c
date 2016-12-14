@@ -14,9 +14,9 @@
 
 static t_coord		*create_coord(int x, int y)
 {
-	t_square	*new;
+	t_coord	*new;
 
-	new = malloc(sizeof(t_square));
+	new = malloc(sizeof(t_coord));
 	if (!new)
 		ft_puterror(0);
 	new->x = x;
@@ -53,24 +53,25 @@ static t_tetramin	*crea_tetr(char *str, char l)
 	return (new);
 }
 
-t_tetramin			**ft_read(char *file, int *size)
+t_tetramin			**ft_read(char *file, int *t_counter)
 {
 	char		*buf;
 	int			fd;
 	int			ret;
-	int			counter;
 	t_tetramin	**tetra_list;
 
-	counter = 0;
 	if ((buf = (char*)malloc(sizeof(char) * (BUF_SIZE + 1))) == 0)
 		ft_puterror(0);
 	if ((fd = open(file, O_RDONLY)) < 0)
 	   ft_puterror(1);
+	if ((tetra_list = (t_tetramin**)malloc(sizeof(t_tetramin) * T_MAX)) == NULL)
+		ft_puterror(0);
 	while ((ret = read(fd, buf, BUF_SIZE)))
 	{
 		buf[ret] = '\0';
-		t_check(buf, &counter);
-		tetra_list[counter - 1] = crea_tetr(buf, 'A' + counter - 1);
+		t_check(buf, &t_counter);
+		tetra_list[*t_counter - 1] = crea_tetr(buf, 'A' + *t_counter - 1);
 	}
+	tetra_list[*t_counter] = NULL;
 	return (tetra_list);
 }
