@@ -23,21 +23,21 @@
 
 void				ft_puterror(int n);
 void				t_check(char *str, int *counter);
-void				**ft_read(char *file, int *size);
+t_tetramin			**ft_read(char *file, int *size);
 
-typedef struct		s_square
+typedef struct		s_coord
 {
-	int				x_coord;
-	int				y_coord;
-}					t_square;
+	int				x;
+	int				y;
+}					t_coord;
 
 typedef struct  	s_tetramin
 {
 	char 			letter;
-	struct s_square	*first;
-	struct s_square	*second;
-	struct s_square	*third;
-	struct s_square	*fourth;
+	struct s_coord	*first;
+	struct s_coord	*second;
+	struct s_coord	*third;
+	struct s_coord	*fourth;
 }					t_tetramin;
 
 #endif

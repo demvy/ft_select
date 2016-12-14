@@ -12,12 +12,54 @@
 
 #include "fillit.h"
 
-void	**ft_read(char *file, int *size)
+static t_coord		*create_coord(int x, int y)
 {
-	char	*buf;
-	int		fd;
-	int		ret;
-	int		counter;
+	t_square	*new;
+
+	new = malloc(sizeof(t_square));
+	if (!new)
+		ft_puterror(0);
+	new->x = x;
+	new->y = y;
+	return (new);
+}
+
+static t_tetramin	*crea_tetr(char *str, char l)
+{
+	t_tetramin	*new;
+	int			i;
+	int			dash_count;
+
+	if ((new = malloc(sizeof(t_tetramin))) == NULL)
+		ft_puterror(0);
+	i = -1;
+	dash_count = 0;
+	new->letter = l;
+	while (str[++i])
+	{
+		if (str[i] == '#')
+		{
+			dash_count++;
+			if (dash_count == 1)
+				new->first = create_coord(i / 5, i % 5);
+			else if (dash_count == 2)
+				new->second = create_coord(i / 5, i % 5);
+			else if (dash_count == 3)
+				new->third = create_coord(i / 5, i % 5);
+			else if (dash_count == 4)
+				new->fourth = create_coord(i / 5, i % 5);
+		}
+	}
+	return (new);
+}
+
+t_tetramin			**ft_read(char *file, int *size)
+{
+	char		*buf;
+	int			fd;
+	int			ret;
+	int			counter;
+	t_tetramin	**tetra_list;
 
 	counter = 0;
 	if ((buf = (char*)malloc(sizeof(char) * (BUF_SIZE + 1))) == 0)
@@ -28,5 +70,7 @@ void	**ft_read(char *file, int *size)
 	{
 		buf[ret] = '\0';
 		t_check(buf, &counter);
+		tetra_list[counter - 1] = crea_tetr(buf, 'A' + counter - 1);
 	}
+	return (tetra_list);
 }
