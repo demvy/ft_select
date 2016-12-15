@@ -6,21 +6,29 @@
 /*   By: oshudria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 16:01:26 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/13 19:01:14 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/15 10:01:52 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static t_coord		*create_coord(int x, int y)
+static t_coord		*create_coord(int x, int y, t_coord *base)
 {
 	t_coord	*new;
 
 	new = malloc(sizeof(t_coord));
 	if (!new)
 		ft_puterror(0);
-	new->x = x;
-	new->y = y;
+	if (!base)
+	{
+		new->x = x;
+		new->y = y;
+	}
+	else
+	{
+		new->x = x - base->x;
+		new->y = y - base->y;
+	}
 	return (new);
 }
 
@@ -41,13 +49,13 @@ static t_tetramin	*crea_tetr(char *str, char l)
 		{
 			dash_count++;
 			if (dash_count == 1)
-				new->first = create_coord(i / 5, i % 5);
+				new->first = create_coord(i / 5, i % 5, new->first);
 			else if (dash_count == 2)
-				new->second = create_coord(i / 5, i % 5);
+				new->second = create_coord(i / 5, i % 5, new->first);
 			else if (dash_count == 3)
-				new->third = create_coord(i / 5, i % 5);
+				new->third = create_coord(i / 5, i % 5, new->first);
 			else if (dash_count == 4)
-				new->fourth = create_coord(i / 5, i % 5);
+				new->fourth = create_coord(i / 5, i % 5, new->first);
 		}
 	}
 	return (new);
