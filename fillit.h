@@ -6,7 +6,7 @@
 /*   By: oshudria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 15:58:04 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/15 09:45:39 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/16 18:13:36 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,14 @@ typedef struct  	s_tetramin
 	struct s_coord	*fourth;
 }					t_tetramin;
 
+typedef struct		s_square
+{
+	char			*str;
+	int				size;
+}					t_square;
+
 t_tetramin			**ft_read(char *file, int *t_counter);
+t_square			*ft_build_matrix(t_square *map, int t_amount);
+int					ft_solve(t_square *map, t_tetramin **t_tab, int i);
 
 #endif
