@@ -15,6 +15,9 @@
 
 static int	ft_check_current(int pos, t_square *m, t_tetramin *tetr)
 {
+	int res;
+
+	res = 0;
 	if (m->str[pos] == '.' &&
 		m->str[pos + (tetr->second)->x * (m->size + 1) +
 		(tetr->second)->y] == '.' &&
@@ -22,8 +25,13 @@ static int	ft_check_current(int pos, t_square *m, t_tetramin *tetr)
 		(tetr->third)->y] == '.' &&
 		m->str[pos + (tetr->fourth)->x * (m->size + 1) +
 		(tetr->fourth)->y] == '.')
-		return (1);
-	return (0);
+	{
+		ft_paste(m, tetr, pos);
+		res = ft_correct_position(pos, m->str, m->size);
+		ft_clear(m->str, tetr->letter);
+		return (res);
+	}
+	return (res);
 }
 
 static int	find_next_pos(t_square *m, t_tetramin *tetr, int pos_num)
@@ -49,7 +57,7 @@ static int	find_next_pos(t_square *m, t_tetramin *tetr, int pos_num)
 	return (pos);
 }
 
-static void	ft_paste(t_square *m, t_tetramin *tetr, int pos)
+void	ft_paste(t_square *m, t_tetramin *tetr, int pos)
 {
 	m->str[pos] = tetr->letter;
 	m->str[pos + (tetr->second)->x * (m->size + 1) +
@@ -60,7 +68,7 @@ static void	ft_paste(t_square *m, t_tetramin *tetr, int pos)
 	(tetr->fourth)->y] = tetr->letter;
 }
 
-static char	*ft_clear(char *tab, char c)
+char	*ft_clear(char *tab, char c)
 {
 	char	*tmp;
 
@@ -74,6 +82,7 @@ static char	*ft_clear(char *tab, char c)
 	return (tab);
 }
 
+//it need to delete this function
 static int	ft_debug(char *str, char c)
 {
 	int pos;

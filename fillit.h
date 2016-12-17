@@ -48,6 +48,11 @@ typedef struct		s_square
 
 t_tetramin			**ft_read(char *file, int *t_counter);
 t_square			*ft_build_matrix(t_square *map, int t_amount);
+//
+void				ft_paste(t_square *m, t_tetramin *tetr, int pos);
+char				*ft_clear(char *tab, char c);
+int					ft_correct_position(int pos, char *str, int size);
+//
 int					ft_solve(t_square *map, t_tetramin **t_tab, int i);
 
 #endif

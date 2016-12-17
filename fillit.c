@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		ft_puterror(3);
 	t_tab = ft_read(argv[1], &t_amount);
+	
 	map = ft_build_matrix(map, t_amount);
 	while(ft_solve(map, t_tab, tetr_index) == 0)
 		map = ft_build_matrix(map, t_amount);
@@ -33,12 +34,14 @@ int	main(int argc, char **argv)
 //  it need to correct next line
 //	ft_solve(t_tab, t_amount, map);
 //	we need to delete all strings till ***
-/*	int i = -1;
-	int j = 0;
-
-	while (t_tab[j])
-		j++;
-	printf("we have %d tetraminos\nanother method give us %d\n", t_amount, j);
+//	printf("x1 - %d\ty1 - %d\nx2 - %d\ty2 - %d\nx3 - %d\ty3 - %d\nx4 - %d\ty4 - %d\n",
+//	t_tab[0]-);
+//	int i = -1;
+//	int j = 0;
+//
+//	while (t_tab[j])
+//		j++;
+/*	printf("we have %d tetraminos\n", t_amount);
 	while (++i < t_amount)
 	{
 		printf("tetramin # %d\t title: %c\ncoord\nfirst  x: %d\t first  y: %d\nsecond x: %d\t second y: %d\nthird  x: %d\t third  y: %d\nfourth x: %d\t fourth y: %d\n", i + 1, t_tab[i]->letter, t_tab[i]->first->x, t_tab[i]->first->y, t_tab[i]->second->x, t_tab[i]->second->y,	t_tab[i]->third->x, t_tab[i]->third->y,	t_tab[i]->fourth->x, t_tab[i]->fourth->y);
