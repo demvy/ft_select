@@ -18,15 +18,17 @@ int	main(int argc, char **argv)
 	int			t_amount;
 	t_tetramin	**t_tab;
 	t_square	*map;
+	int			tetr_index;
 
-	i = 0;
+	tetr_index = 0;
 	t_amount = 0;
 	map = NULL;
 	if (argc != 2)
 		ft_puterror(3);
 	t_tab = ft_read(argv[1], &t_amount);
 	map = ft_build_matrix(map, t_amount);
-	ft_solve(map, t_tab, i);
+	while(ft_solve(map, t_tab, tetr_index) == 0)
+		map = ft_build_matrix(map, t_amount);
 
 //  it need to correct next line
 //	ft_solve(t_tab, t_amount, map);
@@ -41,7 +43,7 @@ int	main(int argc, char **argv)
 	{
 		printf("tetramin # %d\t title: %c\ncoord\nfirst  x: %d\t first  y: %d\nsecond x: %d\t second y: %d\nthird  x: %d\t third  y: %d\nfourth x: %d\t fourth y: %d\n", i + 1, t_tab[i]->letter, t_tab[i]->first->x, t_tab[i]->first->y, t_tab[i]->second->x, t_tab[i]->second->y,	t_tab[i]->third->x, t_tab[i]->third->y,	t_tab[i]->fourth->x, t_tab[i]->fourth->y);
 	}*/
-//	printf("%s\n%d\n", map->str, map->size);
+	printf("%s\n%d\n", map->str, map->size);
 //	**********************
 	return (0);
 }
