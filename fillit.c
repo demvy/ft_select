@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oshudria <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oshudria <oshudria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 18:04:12 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/16 18:13:33 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/18 22:09:21 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		ft_puterror(3);
 	t_tab = ft_read(argv[1], &t_amount);
-	
+
 	map = ft_build_matrix(map, t_amount);
-	while(ft_solve(map, t_tab, tetr_index) == 0)
+	while(ft_solve(map, t_tab, tetr_index, t_amount) == 0)
 		map = ft_build_matrix(map, t_amount);
 
 //  it need to correct next line

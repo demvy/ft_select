@@ -6,14 +6,38 @@
 /*   By: oshudria <oshudria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 10:11:27 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/17 11:32:26 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/18 22:32:36 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
 
-static int	ft_check_current(int pos, t_square *m, t_tetramin *tetr)
+static void	ft_paste(t_square *m, t_tetramin *tetr, int pos)
+{
+	m->str[pos] = tetr->letter;
+	m->str[pos + (tetr->second)->x * (m->size + 1) +
+	(tetr->second)->y] = tetr->letter;
+	m->str[pos + (tetr->third)->x * (m->size + 1) +
+	(tetr->third)->y] = tetr->letter;
+	m->str[pos + (tetr->fourth)->x * (m->size + 1) +
+	(tetr->fourth)->y] = tetr->letter;
+}
+
+void	ft_clear(char *tab, char c)
+{
+	char	*tmp;
+
+	tmp = tab;
+	while (*tmp)
+	{
+		if (*tmp == c)
+			*tmp = '.';
+		tmp++;
+	}
+}
+
+static int	ft_check_current(int pos, t_square *m, t_tetramin *tetr, int n)
 {
 	int res;
 
@@ -26,15 +50,23 @@ static int	ft_check_current(int pos, t_square *m, t_tetramin *tetr)
 		m->str[pos + (tetr->fourth)->x * (m->size + 1) +
 		(tetr->fourth)->y] == '.')
 	{
+//		if (m->size * m->size == n * 4)
+//		{
 		ft_paste(m, tetr, pos);
-		res = ft_correct_position(pos, m->str, m->size);
+//		res = ft_correct_position(pos, m->str, m->size);
+		res = ft_check_free_space(m, pos + (tetr->fourth)->x *
+		(m->size + 1) + (tetr->fourth)->y);
 		ft_clear(m->str, tetr->letter);
+//		}
+//		else
+//			res = 1;
+//		printf("res = %d\tmap - \n%s\n",res,  m->str);
 		return (res);
 	}
 	return (res);
 }
 
-static int	find_next_pos(t_square *m, t_tetramin *tetr, int pos_num)
+static int	find_next_pos(t_square *m, t_tetramin *tetr, int pos_num, int n)
 {
 	int pos;
 	int last_pos;
@@ -50,36 +82,11 @@ static int	find_next_pos(t_square *m, t_tetramin *tetr, int pos_num)
 		if (pos > last_pos || pos + (tetr->fourth)->x * (m->size + 1) +
 			(tetr->fourth)->y > last_pos)
 			return (-1);
-		if (ft_check_current(pos, m, tetr) == 0)
+		if (ft_check_current(pos, m, tetr, n) == 0)
 			pos_num += 1;
 		pos_num -= 1;
 	}
 	return (pos);
-}
-
-void	ft_paste(t_square *m, t_tetramin *tetr, int pos)
-{
-	m->str[pos] = tetr->letter;
-	m->str[pos + (tetr->second)->x * (m->size + 1) +
-	(tetr->second)->y] = tetr->letter;
-	m->str[pos + (tetr->third)->x * (m->size + 1) +
-	(tetr->third)->y] = tetr->letter;
-	m->str[pos + (tetr->fourth)->x * (m->size + 1) +
-	(tetr->fourth)->y] = tetr->letter;
-}
-
-char	*ft_clear(char *tab, char c)
-{
-	char	*tmp;
-
-	tmp = tab;
-	while (*tmp)
-	{
-		if (*tmp == c)
-			*tmp = '.';
-		tmp++;
-	}
-	return (tab);
 }
 
 //it need to delete this function
@@ -93,7 +100,7 @@ static int	ft_debug(char *str, char c)
 	return (pos);
 }
 
-int			ft_solve(t_square *map, t_tetramin **t_tab, int i)
+int			ft_solve(t_square *map, t_tetramin **t_tab, int i, int n)
 {
 //	int	k;
 //	int prev;
@@ -109,17 +116,20 @@ int			ft_solve(t_square *map, t_tetramin **t_tab, int i)
 //			printf("%c", map->str[(int)ft_strlen(map->str) - 2]);
 //		printf("\tprev is: %d\n", prev);
 //	}
+//	printf("%s\n", map->str);
 	if (t_tab[i] == NULL)
 		return (1);
 	pos_num = 1;
-	while ((pos = find_next_pos(map, t_tab[i], pos_num)) != -1)
+	while ((pos = find_next_pos(map, t_tab[i], pos_num, n)) != -1)
 	{
 //		printf("pos OK: %d\ttetr - %d\n", pos, i);
 //		printf("pos = %d\ttetr - %d\n", pos, i);
 		ft_paste(map, t_tab[i], pos);
-		if (ft_solve(map, t_tab, i + 1) == 1)
+		printf("HOHOHOHOHOHOHOHOHO\n%s\n", map->str);
+		if (ft_solve(map, t_tab, i + 1, n) == 1)
 			return (1);
 		ft_clear(map->str, t_tab[i]->letter);
+		printf("CLEEEEEEEEEEEAR\n%s\n", map->str);
 		pos_num += 1;
 	}
 //	printf("pos NO: %d\ttetr - %d\n", pos, i);

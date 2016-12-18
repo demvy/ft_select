@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oshudria <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oshudria <oshudria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 15:58:04 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/16 18:13:36 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/18 22:09:16 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,12 @@ typedef struct		s_square
 
 t_tetramin			**ft_read(char *file, int *t_counter);
 t_square			*ft_build_matrix(t_square *map, int t_amount);
+void 				ft_clear(char *tab, char c);
+int					ft_check_free_space(t_square *map, int last_elem);
 //
-void				ft_paste(t_square *m, t_tetramin *tetr, int pos);
-char				*ft_clear(char *tab, char c);
-int					ft_correct_position(int pos, char *str, int size);
+//int					ft_correct_position(int pos, char *str, int size);
+//int					ft_is_good_place(int pos, char *str, int size, int mode);
 //
-int					ft_solve(t_square *map, t_tetramin **t_tab, int i);
+int					ft_solve(t_square *map, t_tetramin **t_tab, int i, int n);
 
 #endif
