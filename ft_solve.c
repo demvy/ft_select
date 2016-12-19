@@ -6,7 +6,7 @@
 /*   By: oshudria <oshudria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 10:11:27 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/18 22:32:36 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/19 10:13:44 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ static void	ft_paste(t_square *m, t_tetramin *tetr, int pos)
 	(tetr->fourth)->y] = tetr->letter;
 }
 
-void	ft_clear(char *tab, char c)
+static void ft_clear(char *tab, char c)
 {
 	char	*tmp;
 
 	tmp = tab;
 	while (*tmp)
 	{
-		if (*tmp == c)
+		if (*tmp == c || *tmp == '1')
 			*tmp = '.';
 		tmp++;
 	}
@@ -54,13 +54,19 @@ static int	ft_check_current(int pos, t_square *m, t_tetramin *tetr, int n)
 //		{
 		ft_paste(m, tetr, pos);
 //		res = ft_correct_position(pos, m->str, m->size);
+//		if (pos == 6)
+//			printf("pos ---6--- and map is \n%s\nlast pos - %d\n", m->str, pos + (tetr->fourth)->x *
+//			(m->size + 1) + (tetr->fourth)->y);
 		res = ft_check_free_space(m, pos + (tetr->fourth)->x *
 		(m->size + 1) + (tetr->fourth)->y);
+//		if (pos == 6)
+//			printf("result of paste is %d\n", res);
 		ft_clear(m->str, tetr->letter);
 //		}
 //		else
 //			res = 1;
-//		printf("res = %d\tmap - \n%s\n",res,  m->str);
+//		printf("pos - %d\tres = %d\tmap - \n%s\n",pos ,res, m->str);
+//		printf("res = %d\n", res);
 		return (res);
 	}
 	return (res);
@@ -125,11 +131,11 @@ int			ft_solve(t_square *map, t_tetramin **t_tab, int i, int n)
 //		printf("pos OK: %d\ttetr - %d\n", pos, i);
 //		printf("pos = %d\ttetr - %d\n", pos, i);
 		ft_paste(map, t_tab[i], pos);
-		printf("HOHOHOHOHOHOHOHOHO\n%s\n", map->str);
+//		printf("HOHOHOHOHOHOHOHOHO\n%s\n", map->str);
 		if (ft_solve(map, t_tab, i + 1, n) == 1)
 			return (1);
 		ft_clear(map->str, t_tab[i]->letter);
-		printf("CLEEEEEEEEEEEAR\n%s\n", map->str);
+//		printf("CLEEEEEEEEEEEAR\n%s\n", map->str);
 		pos_num += 1;
 	}
 //	printf("pos NO: %d\ttetr - %d\n", pos, i);
