@@ -6,7 +6,7 @@
 /*   By: oshudria <oshudria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 15:58:04 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/19 10:13:12 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/19 22:41:40 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include "libft.h"
+# include "fillit_colors.h"
 
 # define BUF_SIZE 21
 # define T_MAX 26
@@ -48,12 +49,8 @@ typedef struct		s_square
 
 t_tetramin			**ft_read(char *file, int *t_counter);
 t_square			*ft_build_matrix(t_square *map, int t_amount);
-//void 				ft_clear(char *tab, char c);
 int					ft_check_free_space(t_square *map, int last_elem);
-//
-//int					ft_correct_position(int pos, char *str, int size);
-//int					ft_is_good_place(int pos, char *str, int size, int mode);
-//
 int					ft_solve(t_square *map, t_tetramin **t_tab, int i, int n);
+int					ft_output(char *str);
 
 #endif

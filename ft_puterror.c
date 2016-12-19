@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puterror.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oshudria <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oshudria <oshudria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 16:09:29 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/13 19:01:23 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/19 10:39:05 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ void	ft_puterror(int	n)
 	if (n == 2)
 		ft_putendl("tetramino map not valid");
 	if (n == 3)
-		ft_putendl("bad input parameters");
+	{
+		ft_putendl("fillit: missing file with tetramins");
+		ft_putendl("Try ./fillit <valid file name>");
+	}
+	if (n == 4)
+	{
+		ft_putendl("fillit: too many arguments");
+		ft_putendl("Try ./fillit <valid file name>");
+	}
 	exit(1);
 }
