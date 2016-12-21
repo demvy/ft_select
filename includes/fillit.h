@@ -6,7 +6,7 @@
 /*   By: oshudria <oshudria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 15:58:04 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/19 22:41:40 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/21 19:08:23 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ typedef struct		s_coord
 	int				y;
 }					t_coord;
 
-typedef struct  	s_tetramin
+typedef struct		s_tetramin
 {
-	char 			letter;
+	char			letter;
 	struct s_coord	*first;
 	struct s_coord	*second;
 	struct s_coord	*third;

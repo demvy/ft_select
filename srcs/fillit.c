@@ -6,7 +6,7 @@
 /*   By: oshudria <oshudria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 18:04:12 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/19 22:45:10 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/21 19:19:22 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 		ft_puterror(4);
 	t_tab = ft_read(argv[1], &t_amount);
 	map = ft_build_matrix(map, t_amount);
-	while(ft_solve(map, t_tab, tetr_index, t_amount) == 0)
+	while (ft_solve(map, t_tab, tetr_index, t_amount) == 0)
 	{
 		ft_putendl("+1 size");
 		map = ft_build_matrix(map, t_amount);

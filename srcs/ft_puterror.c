@@ -6,13 +6,13 @@
 /*   By: oshudria <oshudria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 16:09:29 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/19 10:39:05 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/21 19:20:11 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_puterror(int	n)
+void	ft_puterror(int n)
 {
 	if (n == 0)
 		ft_putendl("malloc error");

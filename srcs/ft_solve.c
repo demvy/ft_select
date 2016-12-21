@@ -6,7 +6,7 @@
 /*   By: oshudria <oshudria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 10:11:27 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/19 22:46:33 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/21 19:10:04 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_paste(t_square *m, t_tetramin *tetr, int pos)
 	(tetr->fourth)->y] = tetr->letter;
 }
 
-static void ft_clear(char *tab, char c)
+static void	ft_clear(char *tab, char c)
 {
 	char	*tmp;
 

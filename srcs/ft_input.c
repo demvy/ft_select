@@ -6,7 +6,7 @@
 /*   By: oshudria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 16:01:26 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/16 18:13:30 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/21 19:19:44 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_tetramin			**ft_read(char *file, int *t_counter)
 	if ((buf = (char*)malloc(sizeof(char) * (BUF_SIZE + 1))) == 0)
 		ft_puterror(0);
 	if ((fd = open(file, O_RDONLY)) < 0)
-	   ft_puterror(1);
+		ft_puterror(1);
 	if ((tetra_list = (t_tetramin**)malloc(sizeof(t_tetramin) * T_MAX)) == NULL)
 		ft_puterror(0);
 	while ((ret = read(fd, buf, BUF_SIZE)))
