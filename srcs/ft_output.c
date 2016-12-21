@@ -1,6 +1,6 @@
 #include "fillit.h"
 
-static void ft_output_one(char c)
+static void	ft_output_one(char c)
 {
     if (c == 'A')
         ft_putstr(A_COLOR);
@@ -24,7 +24,7 @@ static void ft_output_one(char c)
     ft_putstr(DEFAULT);
 }
 
-static void ft_output_two(char c)
+static void	ft_output_two(char c)
 {
     if (c == 'J')
         ft_putstr(J_COLOR);
@@ -48,7 +48,7 @@ static void ft_output_two(char c)
     ft_putstr(DEFAULT);
 }
 
-static void ft_output_three(char c)
+static void	ft_output_three(char c)
 {
     if (c == 'S')
         ft_putstr(S_COLOR);
@@ -70,7 +70,7 @@ static void ft_output_three(char c)
     ft_putstr(DEFAULT);
 }
 
-int         ft_output(char *str)
+void		ft_output(char *str)
 {
     int i;
 

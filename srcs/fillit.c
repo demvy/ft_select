@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	map = ft_build_matrix(map, t_amount);
 	while(ft_solve(map, t_tab, tetr_index, t_amount) == 0)
 	{
-		printf("+1\n");
+		ft_putendl("+1 size");
 		map = ft_build_matrix(map, t_amount);
 	}
 	ft_output(map->str);

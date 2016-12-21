@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 static void	ft_paste(t_square *m, t_tetramin *tetr, int pos)
 {
@@ -84,18 +83,10 @@ static int	find_next_pos(t_square *m, t_tetramin *tetr, int pos_num, int n)
 			pos_num += 1;
 		pos_num -= 1;
 	}
-	return (pos);
-}
-
-//it need to delete this function
-static int	ft_debug(char *str, char c)
-{
-	int pos;
-
-	pos = 0;
-	while (str[pos] != '\0' && str[pos] != c)
-		pos++;
-	return (pos);
+	if (ft_check_current(pos, m, tetr, n) == 0)
+		return (-1);
+	else
+		return (pos);
 }
 
 int			ft_solve(t_square *map, t_tetramin **t_tab, int i, int n)
