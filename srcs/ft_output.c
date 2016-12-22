@@ -6,7 +6,7 @@
 /*   By: oshudria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 19:10:25 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/21 19:15:45 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/22 14:15:57 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,21 +82,26 @@ static void	ft_output_three(char c)
 	ft_putstr(DEFAULT);
 }
 
-void		ft_output(char *str)
+void		ft_output(char *str, int color_mode)
 {
 	int i;
 
 	i = 0;
-	while (str[i] != 0)
+	if (color_mode == 0)
+		ft_putstr(str);
+	else
 	{
-		if (str[i] >= 'A' && str[i] <= 'I')
-			ft_output_one(str[i]);
-		else if (str[i] > 'I' && str[i] <= 'R')
-			ft_output_two(str[i]);
-		else if (str[i] > 'R' && str[i] <= 'Z')
-			ft_output_three(str[i]);
-		else
-			ft_putchar(str[i]);
-		i++;
+		while (str[i] != 0)
+		{
+			if (str[i] >= 'A' && str[i] <= 'I')
+				ft_output_one(str[i]);
+			else if (str[i] > 'I' && str[i] <= 'R')
+				ft_output_two(str[i]);
+			else if (str[i] > 'R' && str[i] <= 'Z')
+				ft_output_three(str[i]);
+			else
+				ft_putchar(str[i]);
+			i++;
+		}
 	}
 }

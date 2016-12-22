@@ -6,7 +6,7 @@
 /*   By: oshudria <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/21 19:16:11 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/21 19:18:43 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/22 16:09:43 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ static int	ft_count_space(char *str)
 {
 	int	n;
 
-	while (*str)
+	n = 0;
+	while (*str != '\0')
 	{
 		if (*str == '1')
-			n++;
+			n += 1;
 		str++;
 	}
 	return (n);

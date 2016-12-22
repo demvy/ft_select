@@ -6,7 +6,7 @@
 /*   By: oshudria <oshudria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 15:58:04 by oshudria          #+#    #+#             */
-/*   Updated: 2016/12/21 19:08:23 by oshudria         ###   ########.fr       */
+/*   Updated: 2016/12/22 16:19:24 by oshudria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define _FILLIT_H
 
 # include <unistd.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include "libft.h"
@@ -51,6 +50,6 @@ t_tetramin			**ft_read(char *file, int *t_counter);
 t_square			*ft_build_matrix(t_square *map, int t_amount);
 int					ft_check_free_space(t_square *map);
 int					ft_solve(t_square *map, t_tetramin **t_tab, int i, int n);
-void				ft_output(char *str);
+void				ft_output(char *str, int color_mode);
 
 #endif

@@ -49,7 +49,6 @@ static t_square	*ft_create_square(t_square *map, int sq_size)
 
 t_square		*ft_build_matrix(t_square *map, int t_amount)
 {
-	int	sq_len;
 	int	sq_size;
 
 	if (map != NULL)

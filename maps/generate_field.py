@@ -28,7 +28,7 @@ import random
 import os
 
 parser = argparse.ArgumentParser(description="Generate random fillit problems")
-parser.add_argument('count', metavar="count", type=int, default=16, nargs='?',
+parser.add_argument('count', metavar="count", type=int, default=10, nargs='?',
         help="number of tetrominoes to output")
 parser.add_argument('--seed', type=int, default=None,
         help="mt_rand seed (to reproduce problems)")
