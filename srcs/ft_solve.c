@@ -52,8 +52,7 @@ static int	ft_check_current(int pos, t_square *m, t_tetramin *tetr, int n)
 		if (m->size * m->size == n * 4)
 		{
 			ft_paste(m, tetr, pos);
-			res = ft_check_free_space(m, pos + (tetr->fourth)->x *
-			(m->size + 1) + (tetr->fourth)->y);
+			res = ft_check_free_space(m);
 			ft_clear(m->str, tetr->letter);
 		}
 		else

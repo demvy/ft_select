@@ -49,7 +49,7 @@ typedef struct		s_square
 
 t_tetramin			**ft_read(char *file, int *t_counter);
 t_square			*ft_build_matrix(t_square *map, int t_amount);
-int					ft_check_free_space(t_square *map, int last_elem);
+int					ft_check_free_space(t_square *map);
 int					ft_solve(t_square *map, t_tetramin **t_tab, int i, int n);
 void				ft_output(char *str);
 
