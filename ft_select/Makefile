@@ -1,5 +1,5 @@
 
-NAME = minishell
+NAME = ft_select
 CFLAGS = -Wall -Wextra -Werror
 SRC = ./src/main.c 
 	
