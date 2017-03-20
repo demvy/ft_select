@@ -50,3 +50,20 @@ size_t  max_len(t_lst_d *lst)
 	}
 	return (max);
 }
+
+size_t  list_size(t_lst_d *lst)
+{
+	t_lst_d *first;
+	t_lst_d *curr;
+	size_t i;
+
+	first = lst;
+	curr = lst;
+	i = 0;
+	while (curr != first)
+	{
+		i++;
+		curr = curr->next;
+	}
+	return (i);
+}

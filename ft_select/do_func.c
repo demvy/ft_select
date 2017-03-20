@@ -15,7 +15,7 @@ void do_quit()
 
 void do_stop(int i)
 {
-	(float)i;
+	(void)i;
 	signal(SIGTSTP, SIG_DFL);
 	off_select(get_term());
 }
@@ -24,7 +24,7 @@ void do_cont(int i)
 {
 	t_term *term;
 
-	(float)i;
+	(void)i;
 	term = get_term();
 	signal(SIGTSTP, do_stop);
 	signal(SIGCONT, do_cont);

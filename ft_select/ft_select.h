@@ -8,6 +8,7 @@
 # include <termios.h>
 # include <term.h>
 # include <curses.h>
+#include <termcap.h>
 #include <sys/ioctl.h>
 #include <signal.h>
 
@@ -23,7 +24,7 @@ typedef struct		s_lst_d
 
 typedef struct 		s_term
 {
-	int				width_col;
+	size_t	    	width_col;
 	struct winsize	*win;
 	struct termios	*oldt;
 	struct termios	*newt;
@@ -56,10 +57,19 @@ void	del_arg(t_lst_d **lst);
 void    do_quit();
 void    do_stop(int i);
 void    do_cont(int i);
-void    do_winch();
-t_term    *get_term(void);
+void do_winch();
+t_term  *get_term(void);
 void    show_args(t_term *term);
 size_t  max_len(t_lst_d *lst);
+void    print_arg(t_lst_d *el, t_term *term);
+size_t  list_size(t_lst_d *lst);
+void    select_arg(t_lst_d *lst);
+void    go_to_prev(t_term *term);
+void    go_to_next(t_term *term);
+void    go_up(t_term *term);
+void    go_down(t_term *term);
 
+
+void	in_main(char **av);
 
 #endif

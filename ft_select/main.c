@@ -15,7 +15,10 @@ void	in_main(char **av)
 	{
 		tputs(tgetstr("cl", NULL), 1, &put);
 		pressed_key(buf, term);
-		
+		show_args(term);
+		ft_bzero(buf, 4);
+		read(0, buf, 4);
+		update_term(term);
 	}
 }
 
@@ -59,7 +62,6 @@ int		main(int ac, char **av)
 		return (-1);
 	if (tcgetattr(0, &term) == -1)
 		return (-1);
-	
 //	term.c_lflag &= ~(ECHO | ICANON);
 //	term.c_cc[VMIN] = 0;
 //	term.c_cc[VTIME] = 0;

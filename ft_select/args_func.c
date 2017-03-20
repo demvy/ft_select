@@ -60,6 +60,7 @@ void	del_arg(t_lst_d **lst)
 
 	//first = *lst;
 	curr = *lst;
+	pre = *lst;
 	while (!curr->curs)
 	{
 		pre = curr;
