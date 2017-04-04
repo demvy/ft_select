@@ -53,7 +53,7 @@ void	return_str(t_term *term);
 void	pressed_key(char *buf, t_term *term);
 void	choose_arrow(char *buf, t_term *term);
 int		put(int c);
-void	del_arg(t_lst_d **lst);
+t_lst_d	*del_arg(t_lst_d **lst);
 void	do_quit();
 void	do_stop(int i);
 void	do_cont(int i);

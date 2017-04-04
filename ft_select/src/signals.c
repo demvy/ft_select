@@ -34,13 +34,16 @@ void	pressed_key(char *buf, t_term *term)
 	else if (buf[0] == 32)
 		select_arg(term->args);
 	else if (buf[0] == 127 || buf[0] == 8)
-		del_arg(&(term->args));
-	else if (buf[0] == 13 || buf[0] == 10)
 	{
-		ft_printf("ssssssss\n");
+		ft_printf("ccccccc\n");
 		sleep(2);
-		return_str(term);
+		term->args = del_arg(&(term->args));
+		show_args(term);
+		ft_printf("wwwwwwwww\n");
+		sleep(3);
 	}
+	else if (buf[0] == 13 || buf[0] == 10)
+		return_str(term);
 	else if (buf[0] == 4 || buf[0] == 27)
 		do_quit();
 }
@@ -72,7 +75,6 @@ void	return_str(t_term *term)
 	res = ft_strdup("");
 	while (i-- > 0)
 	{
-		ft_printf("sdddddddd\n");
 		if (curr->selected)
 		{
 			tmp = ft_strjoin(res, curr->data);
@@ -84,7 +86,7 @@ void	return_str(t_term *term)
 	}
 	off_select(term);
 	res[ft_strlen(res) - 1] = '\0';
-	ft_printf("res=%s\n", res);
+	ft_printf("%s\n", res);
 	ft_strdel(&res);
 	exit(0);
 }

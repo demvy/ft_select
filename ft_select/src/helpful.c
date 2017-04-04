@@ -60,9 +60,9 @@ size_t  list_size(t_lst_d *lst)
 	size_t i;
 
 	first = lst;
-	curr = lst;
-	i = 0;
-	while (curr != first)
+	curr = lst->next;
+	i = 1;
+	while (curr && curr != first)
 	{
 		i++;
 		curr = curr->next;

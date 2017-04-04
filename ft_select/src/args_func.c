@@ -57,13 +57,15 @@ void	add_el(t_term *lst, char *arg)
 	}
 }
 
-void	del_arg(t_lst_d **lst)
+t_lst_d	*del_arg(t_lst_d **lst)
 {
-	//t_lst_d	*first;
+	t_lst_d	*first;
 	t_lst_d	*curr;
 	t_lst_d	*pre;
 
-	//first = *lst;
+	first = *lst;
+	ft_printf("zirka\n");
+	sleep(3);
 	curr = *lst;
 	pre = *lst;
 	while (!curr->curs)
@@ -80,4 +82,5 @@ void	del_arg(t_lst_d **lst)
 	curr->prev = NULL;
 	free(curr);
 	curr = NULL;
+	return (first);
 }
