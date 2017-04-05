@@ -32,7 +32,7 @@ void    show_args(t_term *term)
 	//printf("%hu\n", term->win->ws_col);
 	cols = term->win->ws_col / (term->width_col + 5);
 	//printf("cols = %zu\n", cols);
-	if ((list_size(term->args) / cols) > term->win->ws_row)
+	if (cols == 0 || (list_size(term->args) / cols) > term->win->ws_row)
 	{
 		ft_printf(STDIN_FILENO, "Not enought size\n");
 		return ;

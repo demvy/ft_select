@@ -20,7 +20,7 @@ void	run_signal(void)
 	int i;
 
 	i = 0;
-	while (i < 32)
+	while (i < 32 && i != 8)
 	{
 		signal(i, handler);
 		i++;
@@ -34,17 +34,10 @@ void	pressed_key(char *buf, t_term *term)
 	else if (buf[0] == 32)
 		select_arg(term->args);
 	else if (buf[0] == 127 || buf[0] == 8)
-	{
-		ft_printf("ccccccc\n");
-		sleep(2);
-		term->args = del_arg(&(term->args));
-		show_args(term);
-		ft_printf("wwwwwwwww\n");
-		sleep(3);
-	}
+		del_arg(&(term->args));
 	else if (buf[0] == 13 || buf[0] == 10)
 		return_str(term);
-	else if (buf[0] == 4 || buf[0] == 27)
+	else if (buf[0] == 4)
 		do_quit();
 }
 
@@ -58,9 +51,9 @@ void	choose_arrow(char *buf, t_term *term)
 		go_down(term);
 	else if (buf[2] == 65)
 		go_up(term);
-	//if (buf[0] == '\033' && buf[1] == '[' &&
-	//	buf[2] == 51 && buf[3] == 126)
-	//	del_arg(&(term->args));
+	if (buf[0] == '\033' && buf[1] == '[' &&
+		buf[2] == 51 && buf[3] == 126)
+		del_arg(&(term->args));
 }
 
 void	return_str(t_term *term)

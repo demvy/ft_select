@@ -13,10 +13,13 @@ void	in_main(char **av)
 	run_signal();
 	while (1)
 	{
+		update_term(term);
 		tputs(tgetstr("cl", NULL), 1, put);
 		pressed_key(buf, term);
+		update_term(term);
 		show_args(term);
 		ft_bzero(buf, 4);
+		update_term(term);
 		read(0, buf, 4);
 		update_term(term);
 	}
