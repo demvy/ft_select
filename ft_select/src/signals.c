@@ -3,28 +3,27 @@
 
 void	handler(int i)
 {
-	if (i == SIGINT || i == SIGQUIT || i == SIGTERM || i == SIGKILL)
-		do_quit();
-	else if (i == SIGTSTP)
+	if (i == SIGTSTP)
 		do_stop(i);
 	else if (i == SIGCONT)
 		do_cont(i);
+	else if (i == SIGINT || i == SIGQUIT || i == SIGTERM || i == SIGKILL)
+		do_quit();
 	else if (i == SIGWINCH)
 		do_winch();
 	else
-		ft_putstr_fd("SIGNAL NOT FOUND\n", 2);
+		ft_putstr_fd("SIGNAL NOT FOUND\n", 0);
 }
 
 void	run_signal(void)
 {
-	int i;
-
-	i = 0;
-	while (i < 32 && i != 8)
-	{
-		signal(i, handler);
-		i++;
-	}
+	signal(SIGWINCH, handler);
+	signal(SIGINT, handler);
+	signal(SIGKILL, handler);
+	signal(SIGTERM, handler);
+	signal(SIGQUIT, handler);
+	signal(SIGTSTP, handler);
+	signal(SIGCONT, handler);
 }
 
 void	pressed_key(char *buf, t_term *term)

@@ -35,7 +35,6 @@ void    go_to_prev(t_term *term)
 		curr->curs = 0;
 		curr->prev->curs = 1;
 	}
-	//ft_printf("end of go_to_prev\n");
 }
 
 void    go_to_next(t_term *term)
@@ -52,7 +51,6 @@ void    go_to_next(t_term *term)
 		curr->curs = 0;
 		curr->next->curs = 1;
 	}
-	//ft_printf("end of go_to_next\n");
 }
 
 void    go_up(t_term *term)

@@ -27,9 +27,9 @@ size_t	ft_substrlen(const char *s, char c)
 	return (i);
 }
 
-int     put(int c)
+int		put(int c)
 {
-	write(STDOUT_FILENO, &c, 1);
+	write(STDIN_FILENO, &c, 1);
 	return (0);
 }
 

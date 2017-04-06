@@ -35,7 +35,7 @@ typedef struct 		s_term
 void	parse_command(char *command, t_lst_d **lst);
 void	args_lst_delone(t_lst_d **lst);
 void	args_free_lst(t_lst_d *lst);
-//void	add_el(t_lst_d **lst, char *arg);
+
 void	change_str(char *s);
 size_t	ft_substrlen(const char *s, char c);
 void	inside_parse(char *command, t_lst_d **lst, unsigned int *i);
@@ -43,7 +43,7 @@ void	inside_parse(char *command, t_lst_d **lst, unsigned int *i);
 
 void	forming_term(t_term **term);
 void	get_lst_args(char **av, t_term *term);
-void	update_term(t_term *term);
+void	update_term(t_term **term);
 void	off_select(t_term *term);
 t_lst_d	*new_arg(char *s);
 void	add_el(t_term *lst, char *arg);
@@ -71,5 +71,6 @@ void	go_down(t_term *term);
 
 
 void	in_main(char **av);
+void	ft_printf_fd(int fd, char *s, ...);
 
 #endif

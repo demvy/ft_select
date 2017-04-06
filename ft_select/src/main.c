@@ -1,54 +1,24 @@
 
 #include "ft_select.h"
 
-
 void	in_main(char **av)
 {
 	char	buf[4];
 	t_term	*term;
 
-	term = NULL;
-	forming_term(&term);
+	term = get_term();
 	get_lst_args(av, term);
 	run_signal();
 	while (1)
 	{
-		update_term(term);
 		tputs(tgetstr("cl", NULL), 1, put);
 		pressed_key(buf, term);
-		update_term(term);
 		show_args(term);
 		ft_bzero(buf, 4);
-		update_term(term);
 		read(0, buf, 4);
-		update_term(term);
+		update_term(&term);
 	}
-}
-
-int		ft_do()
-{
-	char buffer[3];
-
-	while (1)
-	{
-		read(0, buffer, 3);
-		if (buffer[0] == 27)
-			ft_printf("C'est une fleche !\n");
-		else if (buffer[0] == 4)
-		{
-			ft_printf("Ctlr+d, on quitte !\n");
-			return (0);
-		}
-		else if (buffer[0] == 12)
-		{
-			ft_printf("Ctlr+L!!!!\n");
-			return (0);
-		}
-		else
-			ft_printf(buffer);
-		ft_bzero(buffer, 3);
-	}
-	return (0);
+	return ;
 }
 
 int		main(int ac, char **av)

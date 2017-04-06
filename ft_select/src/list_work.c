@@ -37,7 +37,7 @@ void	parse_command(char *command, t_lst_d **lst)
 		inside_parse(command, lst, &i);
 	}
 }
-
+/*
 void	args_lst_delone(t_lst_d **lst)
 {
 	free((*lst)->data);
@@ -54,12 +54,12 @@ void	args_free_lst(t_lst_d *lst)
 		args_lst_delone(&lst);
 	}
 }
-
-void	add_el(t_lst_d **lst, char *arg)
+*/
+/*void	add_el(t_lst_d **lst, char *arg)
 {
 	t_lst_d *beg;
 	t_lst_d *new;
-	//ft_printf("%s\n", arg);
+	
 	if ((*lst) == NULL)
 	{
 		*lst = (t_lst_d*)malloc(sizeof(t_lst_d));
@@ -76,4 +76,4 @@ void	add_el(t_lst_d **lst, char *arg)
 		new->next = NULL;
 		beg->next = new;
 	}
-}
+}*/
