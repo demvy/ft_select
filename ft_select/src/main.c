@@ -18,10 +18,10 @@ void	in_main(char **av)
 		show_args(term);
 		ft_bzero(buf, 4);
 		read(0, buf, 4);
-		update_term(term);
+		update_term(&term);
 	}
 }
-
+/*
 int		ft_do()
 {
 	char buffer[3];
@@ -47,7 +47,7 @@ int		ft_do()
 	}
 	return (0);
 }
-
+*/
 int		main(int ac, char **av)
 {
 	char			*name_term;

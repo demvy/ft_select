@@ -6,10 +6,7 @@
 
 void do_quit()
 {
-	t_term *term;
-
-	term = get_term();
-	off_select(term);
+	off_select(get_term());
 	exit(0);
 }
 
@@ -40,7 +37,7 @@ void do_winch()
 	t_term *term;
 
 	term = get_term();
-	update_term(term);
+	update_term(&term);
 	tputs(tgetstr("cl", NULL), 1, put);
 	show_args(term);
 }

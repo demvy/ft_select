@@ -19,7 +19,7 @@ void	forming_term(t_term **term)
 	tcsetattr(0, TCSADRAIN, (*term)->newt);
 	tputs(tgetstr("vi", NULL), 1, put);
 	tputs(tgetstr("ti", NULL), 1, put);
-	update_term(*term);
+	update_term(term);
 }
 
 t_term    *get_term(void)
@@ -28,17 +28,17 @@ t_term    *get_term(void)
 
 	if (!term)
 		forming_term(&term);
-	update_term(term);
+	update_term(&term);
 	return (term);
 }
 
-void	update_term(t_term *term)
+void	update_term(t_term **term)
 {
 	struct winsize winsz;
 
 	ioctl(0, TIOCGWINSZ, &winsz);
-	term->win->ws_col = winsz.ws_col;
-	term->win->ws_row = winsz.ws_row;
+	(*term)->win->ws_col = winsz.ws_col;
+	(*term)->win->ws_row = winsz.ws_row;
 }
 
 void	off_select(t_term *term)

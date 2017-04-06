@@ -43,7 +43,7 @@ void	inside_parse(char *command, t_lst_d **lst, unsigned int *i);
 
 void	forming_term(t_term **term);
 void	get_lst_args(char **av, t_term *term);
-void	update_term(t_term *term);
+void	update_term(t_term **term);
 void	off_select(t_term *term);
 t_lst_d	*new_arg(char *s);
 void	add_el(t_term *lst, char *arg);
