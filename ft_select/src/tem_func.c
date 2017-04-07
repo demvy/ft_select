@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tem_func.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdemeshk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/07 13:02:52 by vdemeshk          #+#    #+#             */
+/*   Updated: 2017/04/07 13:02:54 by vdemeshk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_select.h"
 
-void	forming_term(t_term **term)
+void				forming_term(t_term **term)
 {
 	(*term) = (t_term*)malloc(sizeof(t_term));
 	(*term)->width_col = 0;
@@ -14,7 +25,7 @@ void	forming_term(t_term **term)
 	tcgetattr(0, (*term)->newt);
 	(*term)->newt->c_lflag &= ~(ECHO | ICANON);
 	(*term)->newt->c_cc[VMIN] = 1;
-	(*term)->newt->c_cc[VTIME] = 100;
+	(*term)->newt->c_cc[VTIME] = 0;
 	(*term)->args = NULL;
 	tcsetattr(0, TCSADRAIN, (*term)->newt);
 	tputs(tgetstr("vi", NULL), 1, put);
@@ -22,9 +33,9 @@ void	forming_term(t_term **term)
 	update_term(term);
 }
 
-t_term    *get_term(void)
+t_term				*get_term(void)
 {
-	static t_term *term = NULL;
+	static t_term	*term = NULL;
 
 	if (!term)
 		forming_term(&term);
@@ -32,16 +43,16 @@ t_term    *get_term(void)
 	return (term);
 }
 
-void	update_term(t_term **term)
+void				update_term(t_term **term)
 {
-	struct winsize winsz;
+	struct winsize	winsz;
 
 	ioctl(0, TIOCGWINSZ, &winsz);
 	(*term)->win->ws_col = winsz.ws_col;
 	(*term)->win->ws_row = winsz.ws_row;
 }
 
-void	off_select(t_term *term)
+void				off_select(t_term *term)
 {
 	tcsetattr(0, TCSADRAIN, term->oldt);
 	tputs(tgetstr("te", NULL), 1, put);

@@ -1,14 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdemeshk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/07 13:01:31 by vdemeshk          #+#    #+#             */
+/*   Updated: 2017/04/07 13:01:33 by vdemeshk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_select.h"
-
 
 void	in_main(char **av)
 {
 	char	buf[4];
 	t_term	*term;
 
-	term = NULL;
-	forming_term(&term);
+	term = get_term();
 	get_lst_args(av, term);
 	run_signal();
 	while (1)
@@ -20,34 +29,9 @@ void	in_main(char **av)
 		read(0, buf, 4);
 		update_term(&term);
 	}
+	return ;
 }
-/*
-int		ft_do()
-{
-	char buffer[3];
 
-	while (1)
-	{
-		read(0, buffer, 3);
-		if (buffer[0] == 27)
-			ft_printf("C'est une fleche !\n");
-		else if (buffer[0] == 4)
-		{
-			ft_printf("Ctlr+d, on quitte !\n");
-			return (0);
-		}
-		else if (buffer[0] == 12)
-		{
-			ft_printf("Ctlr+L!!!!\n");
-			return (0);
-		}
-		else
-			ft_printf(buffer);
-		ft_bzero(buffer, 3);
-	}
-	return (0);
-}
-*/
 int		main(int ac, char **av)
 {
 	char			*name_term;
@@ -67,9 +51,6 @@ int		main(int ac, char **av)
 		ft_putstr_fd("NO ARGUMENTS PASSED!\n", 2);
 		return (-1);
 	}
-//	term.c_lflag &= ~(ECHO | ICANON);
-//	term.c_cc[VMIN] = 0;
-//	term.c_cc[VTIME] = 0;
 	if (tcsetattr(0, TCSANOW, &term) == -1)
 		return (-1);
 	(void)ac;

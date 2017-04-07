@@ -1,27 +1,40 @@
-//
-// Created by valeriy on 18.03.17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   do_func.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdemeshk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/07 12:59:59 by vdemeshk          #+#    #+#             */
+/*   Updated: 2017/04/07 13:00:03 by vdemeshk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_select.h"
 
-void do_quit()
+void		do_quit(void)
 {
 	off_select(get_term());
 	exit(0);
 }
 
-void do_stop(int i)
+void		do_stop(void)
 {
-	(void)i;
+	char	cp[2];
+	t_term	*term;
+
+	term = get_term();
+	cp[0] = term->oldt->c_cc[VSUSP];
+	cp[1] = 0;
 	signal(SIGTSTP, SIG_DFL);
-	off_select(get_term());
+	off_select(term);
+	ioctl(0, TIOCSTI, cp);
 }
 
-void do_cont(int i)
+void		do_cont(void)
 {
-	t_term *term;
+	t_term	*term;
 
-	(void)i;
 	term = get_term();
 	signal(SIGTSTP, do_stop);
 	signal(SIGCONT, do_cont);
@@ -32,9 +45,9 @@ void do_cont(int i)
 	show_args(term);
 }
 
-void do_winch()
+void		do_winch(void)
 {
-	t_term *term;
+	t_term	*term;
 
 	term = get_term();
 	update_term(&term);

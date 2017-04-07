@@ -1,13 +1,21 @@
-//
-// Created by Valeriy Demeshko on 3/20/17.
-//
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   moves.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdemeshk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/07 13:01:52 by vdemeshk          #+#    #+#             */
+/*   Updated: 2017/04/07 13:01:58 by vdemeshk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_select.h"
 
-void    select_arg(t_lst_d *lst)
+void		select_arg(t_lst_d *lst)
 {
-	t_lst_d *first;
-	t_lst_d *curr;
+	t_lst_d	*first;
+	t_lst_d	*curr;
 
 	first = lst;
 	curr = lst;
@@ -21,10 +29,10 @@ void    select_arg(t_lst_d *lst)
 	curr->curs = 0;
 }
 
-void    go_to_prev(t_term *term)
+void		go_to_prev(t_term *term)
 {
-	t_lst_d *first;
-	t_lst_d *curr;
+	t_lst_d	*first;
+	t_lst_d	*curr;
 
 	first = term->args;
 	curr = term->args;
@@ -35,13 +43,12 @@ void    go_to_prev(t_term *term)
 		curr->curs = 0;
 		curr->prev->curs = 1;
 	}
-	//ft_printf("end of go_to_prev\n");
 }
 
-void    go_to_next(t_term *term)
+void		go_to_next(t_term *term)
 {
-	t_lst_d *first;
-	t_lst_d *curr;
+	t_lst_d	*first;
+	t_lst_d	*curr;
 
 	first = term->args;
 	curr = term->args;
@@ -52,14 +59,13 @@ void    go_to_next(t_term *term)
 		curr->curs = 0;
 		curr->next->curs = 1;
 	}
-	//ft_printf("end of go_to_next\n");
 }
 
-void    go_up(t_term *term)
+void		go_up(t_term *term)
 {
-	t_lst_d *first;
-	t_lst_d *curr;
-	size_t  cols;
+	t_lst_d	*first;
+	t_lst_d	*curr;
+	size_t	cols;
 
 	first = term->args;
 	curr = term->args;
@@ -73,11 +79,11 @@ void    go_up(t_term *term)
 	}
 }
 
-void    go_down(t_term *term)
+void		go_down(t_term *term)
 {
-	t_lst_d *first;
-	t_lst_d *curr;
-	size_t  cols;
+	t_lst_d	*first;
+	t_lst_d	*curr;
+	size_t	cols;
 
 	first = term->args;
 	curr = term->args;

@@ -14,17 +14,17 @@
 
 typedef struct		s_lst_d
 {
-    char			*data;
-    struct s_lst_d	*next;
-    struct s_lst_d	*prev;
-    int				selected;
-    int				curs;
+	char			*data;
+	struct s_lst_d	*next;
+	struct s_lst_d	*prev;
+	int				selected;
+	int				curs;
 }					t_lst_d;
 
 
-typedef struct 		s_term
+typedef struct		s_term
 {
-	size_t	    	width_col;
+	size_t			width_col;
 	struct winsize	*win;
 	struct termios	*oldt;
 	struct termios	*newt;
@@ -35,7 +35,7 @@ typedef struct 		s_term
 void	parse_command(char *command, t_lst_d **lst);
 void	args_lst_delone(t_lst_d **lst);
 void	args_free_lst(t_lst_d *lst);
-//void	add_el(t_lst_d **lst, char *arg);
+
 void	change_str(char *s);
 size_t	ft_substrlen(const char *s, char c);
 void	inside_parse(char *command, t_lst_d **lst, unsigned int *i);
@@ -54,10 +54,10 @@ void	pressed_key(char *buf, t_term *term);
 void	choose_arrow(char *buf, t_term *term);
 int		put(int c);
 void	del_arg(t_lst_d **lst);
-void	do_quit();
-void	do_stop(int i);
-void	do_cont(int i);
-void	do_winch();
+void	do_quit(void);
+void	do_stop(void);
+void	do_cont(void);
+void	do_winch(void);
 t_term	*get_term(void);
 void	show_args(t_term *term);
 size_t	max_len(t_lst_d *lst);
@@ -71,5 +71,6 @@ void	go_down(t_term *term);
 
 
 void	in_main(char **av);
+void	ft_printf_fd(int fd, char *s, ...);
 
 #endif
