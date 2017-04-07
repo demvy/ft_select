@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -16,6 +17,18 @@ void		select_arg(t_lst_d *lst)
 {
 	t_lst_d	*first;
 	t_lst_d	*curr;
+=======
+//
+// Created by Valeriy Demeshko on 3/20/17.
+//
+
+#include "ft_select.h"
+
+void    select_arg(t_lst_d *lst)
+{
+	t_lst_d *first;
+	t_lst_d *curr;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 
 	first = lst;
 	curr = lst;
@@ -29,10 +42,17 @@ void		select_arg(t_lst_d *lst)
 	curr->curs = 0;
 }
 
+<<<<<<< HEAD
 void		go_to_prev(t_term *term)
 {
 	t_lst_d	*first;
 	t_lst_d	*curr;
+=======
+void    go_to_prev(t_term *term)
+{
+	t_lst_d *first;
+	t_lst_d *curr;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 
 	first = term->args;
 	curr = term->args;
@@ -45,10 +65,17 @@ void		go_to_prev(t_term *term)
 	}
 }
 
+<<<<<<< HEAD
 void		go_to_next(t_term *term)
 {
 	t_lst_d	*first;
 	t_lst_d	*curr;
+=======
+void    go_to_next(t_term *term)
+{
+	t_lst_d *first;
+	t_lst_d *curr;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 
 	first = term->args;
 	curr = term->args;
@@ -61,11 +88,19 @@ void		go_to_next(t_term *term)
 	}
 }
 
+<<<<<<< HEAD
 void		go_up(t_term *term)
 {
 	t_lst_d	*first;
 	t_lst_d	*curr;
 	size_t	cols;
+=======
+void    go_up(t_term *term)
+{
+	t_lst_d *first;
+	t_lst_d *curr;
+	size_t  cols;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 
 	first = term->args;
 	curr = term->args;
@@ -79,11 +114,19 @@ void		go_up(t_term *term)
 	}
 }
 
+<<<<<<< HEAD
 void		go_down(t_term *term)
 {
 	t_lst_d	*first;
 	t_lst_d	*curr;
 	size_t	cols;
+=======
+void    go_down(t_term *term)
+{
+	t_lst_d *first;
+	t_lst_d *curr;
+	size_t  cols;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 
 	first = term->args;
 	curr = term->args;
@@ -95,4 +138,8 @@ void		go_down(t_term *term)
 		go_to_next(term);
 		cols--;
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3

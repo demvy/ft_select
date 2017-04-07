@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -13,11 +14,21 @@
 #include "ft_select.h"
 
 void		do_quit(void)
+=======
+//
+// Created by valeriy on 18.03.17.
+//
+
+#include "ft_select.h"
+
+void do_quit()
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 {
 	off_select(get_term());
 	exit(0);
 }
 
+<<<<<<< HEAD
 void		do_stop(void)
 {
 	char	cp[2];
@@ -35,6 +46,20 @@ void		do_cont(void)
 {
 	t_term	*term;
 
+=======
+void do_stop(int i)
+{
+	(void)i;
+	signal(SIGTSTP, SIG_DFL);
+	off_select(get_term());
+}
+
+void do_cont(int i)
+{
+	t_term *term;
+
+	(void)i;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 	term = get_term();
 	signal(SIGTSTP, do_stop);
 	signal(SIGCONT, do_cont);
@@ -45,12 +70,22 @@ void		do_cont(void)
 	show_args(term);
 }
 
+<<<<<<< HEAD
 void		do_winch(void)
 {
 	t_term	*term;
+=======
+void do_winch()
+{
+	t_term *term;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 
 	term = get_term();
 	update_term(&term);
 	tputs(tgetstr("cl", NULL), 1, put);
 	show_args(term);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3

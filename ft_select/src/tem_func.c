@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -13,6 +14,12 @@
 #include "ft_select.h"
 
 void				forming_term(t_term **term)
+=======
+
+#include "ft_select.h"
+
+void	forming_term(t_term **term)
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 {
 	(*term) = (t_term*)malloc(sizeof(t_term));
 	(*term)->width_col = 0;
@@ -33,9 +40,15 @@ void				forming_term(t_term **term)
 	update_term(term);
 }
 
+<<<<<<< HEAD
 t_term				*get_term(void)
 {
 	static t_term	*term = NULL;
+=======
+t_term    *get_term(void)
+{
+	static t_term *term = NULL;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 
 	if (!term)
 		forming_term(&term);
@@ -43,16 +56,26 @@ t_term				*get_term(void)
 	return (term);
 }
 
+<<<<<<< HEAD
 void				update_term(t_term **term)
 {
 	struct winsize	winsz;
+=======
+void	update_term(t_term **term)
+{
+	struct winsize winsz;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 
 	ioctl(0, TIOCGWINSZ, &winsz);
 	(*term)->win->ws_col = winsz.ws_col;
 	(*term)->win->ws_row = winsz.ws_row;
 }
 
+<<<<<<< HEAD
 void				off_select(t_term *term)
+=======
+void	off_select(t_term *term)
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 {
 	tcsetattr(0, TCSADRAIN, term->oldt);
 	tputs(tgetstr("te", NULL), 1, put);

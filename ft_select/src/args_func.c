@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -15,18 +16,41 @@
 void		get_lst_args(char **av, t_term *term)
 {
 	int		i;
+=======
+
+#include "ft_select.h"
+
+void	get_lst_args(char **av, t_term *term)
+{
+	int	i;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 
 	i = 1;
 	while (av[i] != NULL)
 	{
+<<<<<<< HEAD
 		add_el(term, av[i]);
+=======
+		//ft_printf("here %d\n", i);
+		//printf("%zu\n", term->width_col);
+		//printf("%p\n", term->args);
+
+		add_el(term, av[i]);
+		//ft_printf("ddddd\n");
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 		i++;
 	}
 }
 
+<<<<<<< HEAD
 t_lst_d		*new_arg(char *s)
 {
 	t_lst_d	*new;
+=======
+t_lst_d	*new_arg(char *s)
+{
+	t_lst_d *new;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 
 	new = (t_lst_d*)malloc(sizeof(t_lst_d));
 	new->data = ft_strdup(s);
@@ -37,11 +61,19 @@ t_lst_d		*new_arg(char *s)
 	return (new);
 }
 
+<<<<<<< HEAD
 void		add_el(t_term *lst, char *arg)
 {
 	t_lst_d	*beg;
 	t_lst_d	*new;
 	t_lst_d	*curr;
+=======
+void	add_el(t_term *lst, char *arg)
+{
+	t_lst_d *beg;
+	t_lst_d *new;
+	t_lst_d *curr;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 
 	if (!lst->args)
 	{
@@ -64,7 +96,35 @@ void		add_el(t_term *lst, char *arg)
 	}
 }
 
+<<<<<<< HEAD
 void		del_arg(t_lst_d **lst)
+=======
+// static void	print_lst(t_lst_d *lst)
+// {
+// 	//int i = list_size(lst);
+// 	t_lst_d *curr;
+// 	t_lst_d *sec;
+// 	t_lst_d *th;
+// 	t_lst_d *fou;
+
+// 	curr = lst;
+// 	ft_printf("cur===%s\n", curr->data);
+// 	sec = curr->next;
+// 	ft_printf("sec===%s\n", sec->data);
+// 	th = sec->next;
+// 	ft_printf("th==%s\n", th->data);
+// 	fou = th->next;
+// 	ft_printf("fou===%s\n", fou->data);
+// 	//ft_printf("i=%d\n", i);
+// 	//while (i-- > 0)
+// 	//{
+// 	//	ft_printf("data=%s\n", curr->data);
+// 	//	curr = curr->next;
+// 	//}
+// }
+
+void	del_arg(t_lst_d **lst)
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 {
 	t_lst_d	*first;
 	t_lst_d	*curr;

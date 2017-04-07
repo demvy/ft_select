@@ -51,6 +51,12 @@ int		main(int ac, char **av)
 		ft_putstr_fd("NO ARGUMENTS PASSED!\n", 2);
 		return (-1);
 	}
+<<<<<<< HEAD
+=======
+//	term.c_lflag &= ~(ECHO | ICANON);
+//	term.c_cc[VMIN] = 0;
+//	term.c_cc[VTIME] = 0;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 	if (tcsetattr(0, TCSANOW, &term) == -1)
 		return (-1);
 	(void)ac;

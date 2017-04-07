@@ -1,0 +1,60 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/nfs/2016/v/vdemeshk/ft_select/libft/libft.h
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
+stdarg.h
+-
+
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/args_func.c
+ft_select.h
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/ft_select.h
+
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/ft_select.h
+../libft/libft.h
+/nfs/2016/v/vdemeshk/ft_select/libft/libft.h
+unistd.h
+-
+stdlib.h
+-
+termios.h
+-
+term.h
+-
+curses.h
+-
+sys/ioctl.h
+-
+
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/helpful.c
+ft_select.h
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/ft_select.h
+
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/list_work.c
+ft_select.h
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/ft_select.h
+
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/main.c
+ft_select.h
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/ft_select.h
+
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/signals.c
+ft_select.h
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/ft_select.h
+
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/tem_func.c
+ft_select.h
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/ft_select.h
+
+/nfs/2016/v/vdemeshk/ft_select/untitled folder/term_func.c
+

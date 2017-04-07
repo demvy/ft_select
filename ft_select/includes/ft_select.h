@@ -14,6 +14,7 @@
 
 typedef struct		s_lst_d
 {
+<<<<<<< HEAD
 	char			*data;
 	struct s_lst_d	*next;
 	struct s_lst_d	*prev;
@@ -25,6 +26,19 @@ typedef struct		s_lst_d
 typedef struct		s_term
 {
 	size_t			width_col;
+=======
+    char			*data;
+    struct s_lst_d	*next;
+    struct s_lst_d	*prev;
+    int				selected;
+    int				curs;
+}					t_lst_d;
+
+
+typedef struct 		s_term
+{
+	size_t	    	width_col;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 	struct winsize	*win;
 	struct termios	*oldt;
 	struct termios	*newt;
@@ -54,10 +68,17 @@ void	pressed_key(char *buf, t_term *term);
 void	choose_arrow(char *buf, t_term *term);
 int		put(int c);
 void	del_arg(t_lst_d **lst);
+<<<<<<< HEAD
 void	do_quit(void);
 void	do_stop(void);
 void	do_cont(void);
 void	do_winch(void);
+=======
+void	do_quit();
+void	do_stop(int i);
+void	do_cont(int i);
+void	do_winch();
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 t_term	*get_term(void);
 void	show_args(t_term *term);
 size_t	max_len(t_lst_d *lst);

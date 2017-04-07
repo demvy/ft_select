@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -13,6 +14,15 @@
 #include "ft_select.h"
 
 void		print_arg(t_lst_d *el, t_term *term)
+=======
+//
+// Created by valeriy on 19.03.17.
+//
+
+#include "ft_select.h"
+
+void    print_arg(t_lst_d *el, t_term *term)
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 {
 	if (el->curs)
 		tputs(tgetstr("us", NULL), 1, put);
@@ -25,7 +35,11 @@ void		print_arg(t_lst_d *el, t_term *term)
 		tputs(tgetstr("ue", NULL), 1, put);
 }
 
+<<<<<<< HEAD
 static int	in_show_args(t_lst_d *first, t_lst_d *curr, size_t cols, t_term *t)
+=======
+static int in_show_args(t_lst_d *first, t_lst_d *curr, size_t cols, t_term *t)
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 {
 	size_t	i;
 
@@ -38,22 +52,39 @@ static int	in_show_args(t_lst_d *first, t_lst_d *curr, size_t cols, t_term *t)
 			i++;
 			curr = curr->next;
 			if (curr == first)
+<<<<<<< HEAD
 				break ;
 			ft_printf_fd(0, " ");
 		}
 		if (curr == first)
 			break ;
+=======
+				break;
+			ft_printf_fd(0, " ");
+		}
+		if (curr == first)
+			break;
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 		ft_printf_fd(0, "\n");
 	}
 	return (0);
 }
 
+<<<<<<< HEAD
 void		show_args(t_term *term)
 {
 	t_lst_d	*first;
 	t_lst_d	*curr;
 	size_t	cols;
 
+=======
+void    show_args(t_term *term)
+{
+	t_lst_d *first;
+	t_lst_d *curr;
+	size_t  cols;
+	
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
 	first = term->args;
 	curr = term->args;
 	term->width_col = max_len(term->args);
@@ -64,4 +95,8 @@ void		show_args(t_term *term)
 		return ;
 	}
 	in_show_args(first, curr, cols, term);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 33da2df41d08575330555533162a7c1fc4d21af3
