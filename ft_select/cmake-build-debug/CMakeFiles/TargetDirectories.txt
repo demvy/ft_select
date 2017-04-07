@@ -1,3 +1,0 @@
-/home/valeriy/ft_select/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/valeriy/ft_select/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/valeriy/ft_select/cmake-build-debug/CMakeFiles/ft_select.dir
